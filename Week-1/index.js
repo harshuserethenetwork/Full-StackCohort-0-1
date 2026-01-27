@@ -15,6 +15,7 @@ const {
   getUpperCase,
   getLowerCase,
 } = require("./string_methods/strings");
+const {convertStringIntoNumber, roundPrice, findLargestNumberFromArray, generateSixDigitOTP, validateNumericValue} = require('./number_methods/numbers')
 const app = express();
 const PORT = 3000;
 
@@ -106,14 +107,22 @@ const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 
 // getLength("Harsh");
 // indexOfString("Harsh", "r");
-// lastIndexOfString('Harsh', 'h')
-// getSlicedValue("If mind forgets the heart will always remembered", 0, 20)
-// getSubString("If mind forgets the heart will always remembered", 20, 25)
-// getReplaceString("Welcome to C++", "C++", "JavaScript")
-// getSplitString("Bulbasaur, Pikachu, Squirtal, Charmandar, Bayleaf", ",", 5)
-// getTrimString("   This is the test String    ")
+// lastIndexOfString('Harsh', 'h');
+// getSlicedValue("If mind forgets the heart will always remembered", 0, 20);
+// getSubString("If mind forgets the heart will always remembered", 20, 25);
+// getReplaceString("Welcome to C++", "C++", "JavaScript");
+// getSplitString("Bulbasaur, Pikachu, Squirtal, Charmandar, Bayleaf", ",", 5);
+// getTrimString("   This is the test String    ");
 // getUpperCase("uppercase");
-// getLowerCase("LOWERCASE")
+// getLowerCase("LOWERCASE");
+
+// Number Methods Below ----->
+
+// convertStringIntoNumber("250.75");
+// roundPrice("199.9876");
+// findLargestNumberFromArray(["1","5","2"]);
+// generateSixDigitOTP();
+// validateNumericValue("22dqwd")
 
 app.listen(PORT, () => {
   console.log("Hurray, Server Is Now Live!");
