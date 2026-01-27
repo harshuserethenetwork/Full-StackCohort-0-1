@@ -47,19 +47,90 @@ const calculateTheCartPrice = () => {
 
 //Problem - 4: Task: Flatten the nested arrays into one single array.
 const flatenTheNestedArray = () => {
-    const folders = [["file1.txt", "file2.txt"], ["image.png"], ["script.js", "style.css"]];
-    const result = folders.reduce((accumulator, currentSubArray) => {
-         return accumulator.concat(currentSubArray)
-    }, [])
-    
-    console.log(result)
-}
+  const folders = [
+    ["file1.txt", "file2.txt"],
+    ["image.png"],
+    ["script.js", "style.css"],
+  ];
+  const result = folders.reduce((accumulator, currentSubArray) => {
+    return accumulator.concat(currentSubArray);
+  }, []);
 
-//Problem - 4: Task: Group names by whether they are "Adults" or "Minors".
+  console.log(result);
+};
+
+//Problem - 5: Task: Group names by whether they are "Adults" or "Minors".
+const groupTheNames = () => {
+  const people = [
+    { name: "Rahul", age: 25 },
+    { name: "Simran", age: 17 },
+    { name: "Amit", age: 30 },
+    { name: "Pooja", age: 15 },
+  ];
+
+  const grouped = people.reduce((acc, person) => {
+    const category = person.age >= 18 ? "Adult" : "Minor";
+
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+
+    acc[category].push(person.name);
+    return acc;
+  }, {});
+
+  console.log(grouped);
+};
+
+//Problem - 6: Task: Given an array of numbers, find the largest number in the list.
+const findMaximumNumber = (arr) => {
+  const result = arr.reduce((accumulator, currentValue) => {
+    return accumulator >= currentValue ? accumulator : currentValue;
+  }, arr[0]);
+
+  console.log(result);
+};
+
+//Problem -7: Task: Calculate total amount of e-com bill and excude the products which is out of stock.
+const calculateTotalBill = () => {
+  const cart = [
+    { name: "iPhone", price: 70000, inStock: true },
+    { name: "Screen Guard", price: 500, inStock: false },
+    { name: "Case", price: 1200, inStock: true },
+  ];
+
+  const result = cart.reduce((total, product) => {
+    const result = product.inStock ? total + product.price : total;
+    return result;
+  }, 0);
+
+  console.log(result);
+};
+
+//Problem -8: Task: You have many blog posts, and each post has its own tags. You need to create a “Trending Tags” list in which no tag is repeated.
+//Expected Output: ["js", "web", "react", "node"]
+const trendingTagsTrail = () => {
+  const posts = [
+    { title: "Post 1", tags: ["js", "web"] },
+    { title: "Post 2", tags: ["web", "react"] },
+    { title: "Post 3", tags: ["js", "node"] },
+  ];
+
+  const result = posts.reduce((tagList, posts) => {
+    const tags = tagList.concat(posts.tags);
+    return tags;
+  }, []);
+
+  console.log(result);
+};
 
 module.exports = {
   arrayReduceMethod,
   arrayReduceMethodTwo,
   calculateTheCartPrice,
-  flatenTheNestedArray
+  flatenTheNestedArray,
+  groupTheNames,
+  findMaximumNumber,
+  calculateTotalBill,
+  trendingTagsTrail,
 };
