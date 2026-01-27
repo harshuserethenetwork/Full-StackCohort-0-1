@@ -15,7 +15,19 @@ const {
   getUpperCase,
   getLowerCase,
 } = require("./string_methods/strings");
-const {convertStringIntoNumber, roundPrice, findLargestNumberFromArray, generateSixDigitOTP, validateNumericValue} = require('./number_methods/numbers')
+const {
+  convertStringIntoNumber,
+  roundPrice,
+  findLargestNumberFromArray,
+  generateSixDigitOTP,
+  validateNumericValue,
+} = require("./number_methods/numbers");
+const {
+  arrayReduceMethod,
+  arrayReduceMethodTwo,
+  calculateTheCartPrice,
+  flatenTheNestedArray,
+} = require("./array_methods/arrays");
 const app = express();
 const PORT = 3000;
 
@@ -123,7 +135,10 @@ const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 // findLargestNumberFromArray(["1","5","2"]);
 // generateSixDigitOTP();
 // validateNumericValue("22dqwd")
-
+// arrayReduceMethod([10, 20, 30]);
+// arrayReduceMethodTwo(["kurkure", "maggie", "pasta", "maggie", "ketchup", "floor_cleaner", "mop", "kurkure"])
+// calculateTheCartPrice();
+// flatenTheNestedArray();
 app.listen(PORT, () => {
   console.log("Hurray, Server Is Now Live!");
 });
