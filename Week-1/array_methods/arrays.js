@@ -1,3 +1,4 @@
+// Array Method - REDUCE
 // Problem-1:
 // Write a function that returns the sum of all numbers in an array.
 // Example Input: [10, 20, 30]
@@ -124,6 +125,100 @@ const trendingTagsTrail = () => {
   console.log(result);
 };
 
+//Array Method - FIND  X==============================================X
+// Problem 9: The "High Priority" Task
+// Context: You are building a Todo application. Every task has a priority level. You need to identify the first task that is marked as "High" priority so the user can be notified.
+
+const findHighPriorityTask = () => {
+  const tasks = [
+    { id: 1, title: "Emails", priority: "Low" },
+    { id: 2, title: "Prepare Presentation", priority: "Medium" },
+    { id: 3, title: "Server Crash Fix", priority: "High" },
+    { id: 4, title: "Client Call", priority: "High" },
+  ];
+
+  const result = tasks.find((task) => {
+    return task.priority === "High";
+  });
+
+  console.log(result);
+};
+
+// Problem 2: The "Overdraft" Finder
+// Context: A bank manager wants to see the first account that has a negative balance to check for potential credit issues.
+
+const findOverdraft = () => {
+  const balances = [1500, 2300, 450, -12, 500, -200];
+
+  const result = balances.find((bal) => {
+    if (bal < 0) {
+      return bal;
+    }
+  });
+
+  console.log(result);
+};
+
+// Problem 3: Finding a Specific Profile
+// Context: You have a database of users. You need to implement a search feature that locates a user by their unique username.
+
+const findUserFromSearch = (username) => {
+  const users = [
+    { username: "john_doe", email: "john@example.com" },
+    { username: "jane_smith", email: "jane@example.com" },
+    { username: "dev_expert", email: "expert@code.com" },
+  ];
+
+  const result = users.find((user) => {
+    return user.username === username;
+  });
+
+  const isUser = result ? result : "No user found with username " + username;
+  console.log(isUser);
+};
+
+// //Array Method - INCLUDE  X==============================================X
+// Problem 1: The "Restricted Keyword" Filter
+// Context: You are building a comment section for a blog. You want to check if a user's comment contains any "banned" words before posting it.
+
+const checkForRestrictedComments = (userComment) => {
+  const bannedWords = ["spam", "advertisement", "clickbait"];
+
+  const breakString = userComment.split(" ");
+  let ans = "";
+
+  breakString.forEach((elem) => {
+    const isBanned = bannedWords.includes(elem);
+    if (isBanned) {
+      let len = elem.length;
+      ans += "*".repeat(len);
+    } else {
+      ans += elem;
+    }
+    ans += " ";
+  });
+
+  console.log(ans);
+
+  //  result.forEach((word) => {
+  //    let restrictedWord = "";
+  //   const wordLength = word.length;
+  //   for(let i = 0; i <= wordLength; i++){
+  //     restrictedWord += "*"
+  //   }
+
+  //   const splitText = userComment.split(" ");
+  //   splitText.forEach((elem) => {
+  //     const isContains = bannedWords.includes(elem);
+  //     if(isContains){
+  //       const test = elem.replace(elem, restrictedWord);
+  //       console.log(test)
+  //     }
+  //   })
+
+  //  })
+};
+
 module.exports = {
   arrayReduceMethod,
   arrayReduceMethodTwo,
@@ -133,4 +228,8 @@ module.exports = {
   findMaximumNumber,
   calculateTotalBill,
   trendingTagsTrail,
+  findHighPriorityTask,
+  findOverdraft,
+  findUserFromSearch,
+  checkForRestrictedComments,
 };

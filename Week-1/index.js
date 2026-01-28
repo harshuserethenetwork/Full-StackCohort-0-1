@@ -31,6 +31,10 @@ const {
   findMaximumNumber,
   calculateTotalBill,
   trendingTagsTrail,
+  findHighPriorityTask,
+  findOverdraft,
+  findUserFromSearch,
+  checkForRestrictedComments,
 } = require("./array_methods/arrays");
 const app = express();
 const PORT = 3000;
@@ -147,6 +151,10 @@ const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 // findMaximumNumber([10, 20, 30, 40]);
 // calculateTotalBill()
 // trendingTagsTrail();
+// findHighPriorityTask();
+// findOverdraft();
+// findUserFromSearch("jane_smith");
+// checkForRestrictedComments("This is the clickbait video, which might contains spam link");
 
 app.listen(PORT, () => {
   console.log("Hurray, Server Is Now Live!");
