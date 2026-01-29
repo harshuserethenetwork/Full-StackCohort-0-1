@@ -35,6 +35,11 @@ const {
   findOverdraft,
   findUserFromSearch,
   checkForRestrictedComments,
+  emailDomainVerifing,
+  getFirstThreeStudents,
+  emergencyDelection,
+  updateEntryUsingSplice,
+  dynamicSorting,
 } = require("./array_methods/arrays");
 const app = express();
 const PORT = 3000;
@@ -115,6 +120,24 @@ const peopleData = {
 //Demo Array
 const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 
+const strData = [
+  "Charizard",
+  "Gangar",
+  "Blastoise",
+  "Raichu",
+  "Lugia",
+  "Snorlax",
+];
+const objData = [
+  { name: "Charizard", hp: 4000, power: 90 },
+  { name: "Gangar", hp: 1000, power: 85 },
+  { name: "Blastoise", hp: 1800, power: 88 },
+  { name: "Raichu", hp: 1200, power: 90 },
+  { name: "Lugia", hp: 10000, power: 95 },
+  { name: "Snorlax", hp: 8000, power: 45 },
+];
+const numData = [254, 845, 74, 21, 65, 100];
+
 //All Assessment Funstions ---->
 //You can uncomment the commented below Assessments In order to run it one by one and can check/test the outputs
 
@@ -143,6 +166,9 @@ const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 // findLargestNumberFromArray(["1","5","2"]);
 // generateSixDigitOTP();
 // validateNumericValue("22dqwd")
+
+// Array Methods Below ----->
+
 // arrayReduceMethod([10, 20, 30]);
 // arrayReduceMethodTwo(["kurkure", "maggie", "pasta", "maggie", "ketchup", "floor_cleaner", "mop", "kurkure"])
 // calculateTheCartPrice();
@@ -155,6 +181,11 @@ const arr = [2, 5, 8, 4, 7, 9, 4, 1];
 // findOverdraft();
 // findUserFromSearch("jane_smith");
 // checkForRestrictedComments("This is the clickbait video, which might contains spam link");
+// emailDomainVerifing("rahul.dev@gmail.com");
+// getFirstThreeStudents();
+// emergencyDelection();
+// updateEntryUsingSplice();
+// dynamicSorting(objData, 'name')
 
 app.listen(PORT, () => {
   console.log("Hurray, Server Is Now Live!");

@@ -144,7 +144,7 @@ const findHighPriorityTask = () => {
   console.log(result);
 };
 
-// Problem 2: The "Overdraft" Finder
+// Problem 10: The "Overdraft" Finder
 // Context: A bank manager wants to see the first account that has a negative balance to check for potential credit issues.
 
 const findOverdraft = () => {
@@ -159,7 +159,7 @@ const findOverdraft = () => {
   console.log(result);
 };
 
-// Problem 3: Finding a Specific Profile
+// Problem 11: Finding a Specific Profile
 // Context: You have a database of users. You need to implement a search feature that locates a user by their unique username.
 
 const findUserFromSearch = (username) => {
@@ -177,14 +177,14 @@ const findUserFromSearch = (username) => {
   console.log(isUser);
 };
 
-// //Array Method - INCLUDE  X==============================================X
-// Problem 1: The "Restricted Keyword" Filter
+// Array Method - INCLUDE  X==============================================X
+// Problem 12: The "Restricted Keyword" Filter
 // Context: You are building a comment section for a blog. You want to check if a user's comment contains any "banned" words before posting it.
 
 const checkForRestrictedComments = (userComment) => {
   const bannedWords = ["spam", "advertisement", "clickbait"];
 
-  const breakString = userComment.split(" ");
+  const breakString = userComment.toLowerCase().split(" ");
   let ans = "";
 
   breakString.forEach((elem) => {
@@ -199,24 +199,90 @@ const checkForRestrictedComments = (userComment) => {
   });
 
   console.log(ans);
+};
 
-  //  result.forEach((word) => {
-  //    let restrictedWord = "";
-  //   const wordLength = word.length;
-  //   for(let i = 0; i <= wordLength; i++){
-  //     restrictedWord += "*"
-  //   }
+// Problem 13: Finding a Substring (Strings also have .includes!)
+// Context: You want to check if an email address belongs to a specific company (e.g., Google).
+const emailDomainVerifing = (email) => {
+  const isValidEmail = email.includes("gmail");
+  if (isValidEmail) {
+    console.log("Thanks for providing your gmail id.");
+  } else {
+    console.log("Only gmails' are allowed !");
+  }
+};
 
-  //   const splitText = userComment.split(" ");
-  //   splitText.forEach((elem) => {
-  //     const isContains = bannedWords.includes(elem);
-  //     if(isContains){
-  //       const test = elem.replace(elem, restrictedWord);
-  //       console.log(test)
-  //     }
-  //   })
+// Array Method - SLICE & SPLICE  X==============================================X
+// Problem 14: The "Top 3" Leaderboard (Slice)
+// Context: You have a list of students ranked by marks. You need to create a new array containing only the top 3 students without affecting the main ranking list.
 
-  //  })
+const getFirstThreeStudents = () => {
+  const students = ["Rahul", "Amit", "Sonia", "Priya", "Vikram"];
+  const result = students.slice(0, 3);
+  console.log(result);
+};
+
+// Problem 15: The "Emergency Deletion" (Splice)
+// Context: In a shopping list, the second item is out of stock. You need to remove it from the original list.
+
+const emergencyDelection = () => {
+  const shoppingList = ["Milk", "Eggs", "Bread", "Butter"];
+
+  const removedItem = shoppingList.splice(1, 1);
+  console.log("Updated List:", shoppingList);
+  console.log("Removed:", removedItem);
+};
+
+// Problem 16: The "Update Entry" (Splice)
+// Context: You are managing a queue. The person at index 2 left, and a new person named "Guest" took their place.
+const updateEntryUsingSplice = () => {
+  const queue = ["User1", "User2", "User3", "User4"];
+  queue.splice(2, 1, "Guest");
+  console.log("Current Queue List: ", queue);
+};
+
+// Array Method - SORT  X==============================================X
+// Problem 17: A Dynamic Sorting
+//Context: You have to find out weather the array contains String, Number or Both Sort them dynamically
+
+const dynamicSorting = (unsortedData, key) => {
+  let data = unsortedData;
+
+  let isString = null;
+  let isNumber = null;
+  let isObject = null;
+
+  data?.forEach((elem) => {
+    if (typeof elem === "string") {
+      isString = true;
+      isNumber = false;
+      isObject = false;
+    } else if (typeof elem === "object" && elem !== null) {
+      isString = false;
+      isNumber = false;
+      isObject = true;
+    } else {
+      isString = false;
+      isNumber = true;
+      isObject = false;
+    }
+  });
+
+  if (isString) {
+    const result = data.sort();
+    console.log(result);
+  } else if (isNumber) {
+    const result = data.sort((a, b) => a - b);
+    console.log(result);
+  } else if (isObject && key) {
+    if (typeof data[0][key] === "string") {
+      const result = data.sort((a, b) => a[key].localeCompare(b[key]));
+      console.log(result);
+    } else {
+      const result = data.sort((a, b) => a[key] - b[key]);
+      console.log(result);
+    }
+  }
 };
 
 module.exports = {
@@ -232,4 +298,9 @@ module.exports = {
   findOverdraft,
   findUserFromSearch,
   checkForRestrictedComments,
+  emailDomainVerifing,
+  getFirstThreeStudents,
+  emergencyDelection,
+  updateEntryUsingSplice,
+  dynamicSorting,
 };
